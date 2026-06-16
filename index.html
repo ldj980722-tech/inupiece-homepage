@@ -658,18 +658,6 @@
   </style>
 </head>
 <body>
-  <form name="inupiece-cs" data-netlify="true" netlify-honeypot="bot-field" hidden>
-    <input type="hidden" name="form-name" value="inupiece-cs">
-    <input name="bot-field">
-    <input name="type">
-    <input name="name">
-    <input name="phone">
-    <input name="kakao">
-    <input name="product">
-    <input name="pickup_date">
-    <textarea name="message"></textarea>
-  </form>
-
   <header class="topbar">
     <nav class="nav" aria-label="주요 메뉴">
       <a class="brand" href="#top" aria-label="이누피스 홈">
@@ -933,27 +921,23 @@
             <div class="kicker">Customer Support</div>
             <h2>고객센터와 문의 접수.</h2>
           </div>
-          <p class="lead">주문, 입금 확인, 예약 변경, 상품 문의를 편한 방식으로 남겨주세요. 빠른 상담은 카카오톡 채널을 권장드립니다.</p>
+          <p class="lead">주문, 입금 확인, 예약 변경, 상품 문의를 편한 방식으로 남겨주세요. 작성한 문의내용은 카카오톡 채팅으로 바로 보낼 수 있습니다.</p>
         </div>
         <div class="cs-grid">
           <aside class="cs-card">
             <h3>어디로 문의하면 좋을까요?</h3>
-            <p>주문 확정과 입금 확인은 카카오톡 채널이 가장 빠릅니다. 간단한 상품 질문은 사이트 상담창이나 인스타그램 DM으로도 문의하실 수 있습니다.</p>
+            <p>주문 확정과 입금 확인은 카카오톡 채널이 가장 빠릅니다. 간단한 상품 질문은 인스타그램 DM으로도 문의하실 수 있습니다.</p>
             <div class="hero-actions">
               <a class="btn kakao" href="http://pf.kakao.com/_SrhCX/chat" target="_blank" rel="noreferrer">카카오톡 채팅</a>
               <a class="btn insta" href="https://www.instagram.com/inu_piece" target="_blank" rel="noreferrer">인스타그램 DM</a>
             </div>
             <ul class="cs-list">
               <li>주문 확정 / 입금 확인 / 예약 변경: 카카오톡 채널</li>
-              <li>상품 문의 / 간단 상담: 사이트 상담창 또는 인스타그램 DM</li>
-              <li>제휴 / 기타 문의: 아래 문의폼 접수</li>
+              <li>상품 문의 / 간단 상담: 카카오톡 채널 또는 인스타그램 DM</li>
+              <li>제휴 / 기타 문의: 아래 양식 작성 후 카카오톡 전송</li>
             </ul>
           </aside>
-          <form class="cs-card cs-form" id="csForm" name="inupiece-cs" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="inupiece-cs">
-            <p style="display:none;">
-              <label>비워두세요 <input name="bot-field"></label>
-            </p>
+          <form class="cs-card cs-form" id="csForm">
             <div class="field-grid">
               <label>
                 문의 유형
@@ -996,9 +980,9 @@
               문의 내용
               <textarea name="message" placeholder="문의 내용, 예약 변경 요청, 입금자명 등을 적어주세요." required></textarea>
             </label>
-            <button class="btn" id="csSubmit" type="submit">문의 접수하기</button>
+            <button class="btn kakao" id="csSubmit" type="submit">문의내용 복사하고 카카오톡 문의하기</button>
             <span class="form-note" id="csStatus"></span>
-            <span class="form-note">남겨주신 문의는 확인 후 순차적으로 연락드립니다. 빠른 답변이 필요하면 카카오톡 채널을 이용해주세요.</span>
+            <span class="form-note">버튼을 누르면 문의내용이 자동 복사되고 카카오톡 채팅으로 이동합니다. 채팅창에 붙여넣어 보내주세요.</span>
           </form>
         </div>
       </div>
@@ -1043,7 +1027,7 @@
   </div>
 
   <script>
-    const CHANNEL_IO_PLUGIN_KEY = "1488304";
+    const CHANNEL_IO_PLUGIN_KEY = "";
     if (CHANNEL_IO_PLUGIN_KEY) {
       (function() {
         const w = window;
@@ -1317,26 +1301,41 @@
       csForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(csForm);
-        formData.set("form-name", csForm.getAttribute("name"));
-        const body = new URLSearchParams(formData);
+        const type = formData.get("type") || "";
+        const name = formData.get("name") || "";
+        const phone = formData.get("phone") || "";
+        const kakao = formData.get("kakao") || "";
+        const product = formData.get("product") || "";
+        const pickupDate = formData.get("pickup_date") || "";
+        const message = formData.get("message") || "";
+        const csMessage = [
+          "[이누피스 문의]",
+          "",
+          `문의 유형: ${type}`,
+          `이름: ${name}`,
+          `연락처: ${phone}`,
+          `카카오톡 닉네임: ${kakao || "미입력"}`,
+          `주문 상품: ${product || "미입력"}`,
+          `수령 희망일: ${pickupDate || "미입력"}`,
+          "",
+          "문의 내용:",
+          message
+        ].join("\n");
 
         csSubmit.disabled = true;
-        csSubmit.textContent = "접수 중...";
+        csSubmit.textContent = "카카오톡으로 이동 중...";
         csStatus.textContent = "";
 
         try {
-          const response = await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: body.toString()
-          });
-
-          if (!response.ok) throw new Error("submit failed");
-          window.location.href = "/thanks.html";
+          await copyText(csMessage);
+          csStatus.textContent = "문의내용이 복사되었습니다. 카카오톡 채팅창에 붙여넣어 보내주세요.";
+          setTimeout(() => {
+            window.location.href = "http://pf.kakao.com/_SrhCX/chat";
+          }, 450);
         } catch (error) {
-          csStatus.textContent = "문의 접수 중 문제가 생겼습니다. 카카오톡 채널로 문의를 남겨주세요.";
+          csStatus.textContent = "복사가 되지 않으면 작성한 내용을 캡처해서 카카오톡 채널로 보내주세요.";
           csSubmit.disabled = false;
-          csSubmit.textContent = "문의 접수하기";
+          csSubmit.textContent = "문의내용 복사하고 카카오톡 문의하기";
         }
       });
     }
