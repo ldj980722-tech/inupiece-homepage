@@ -658,6 +658,18 @@
   </style>
 </head>
 <body>
+  <form name="inupiece-cs" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="inupiece-cs">
+    <input name="bot-field">
+    <input name="type">
+    <input name="name">
+    <input name="phone">
+    <input name="kakao">
+    <input name="product">
+    <input name="pickup_date">
+    <textarea name="message"></textarea>
+  </form>
+
   <header class="topbar">
     <nav class="nav" aria-label="주요 메뉴">
       <a class="brand" href="#top" aria-label="이누피스 홈">
@@ -945,7 +957,7 @@
             <div class="field-grid">
               <label>
                 문의 유형
-                <select name="문의 유형" required>
+                <select name="type" required>
                   <option value="">선택해주세요</option>
                   <option>주문 문의</option>
                   <option>입금 확인</option>
@@ -957,32 +969,32 @@
               </label>
               <label>
                 이름
-                <input name="이름" autocomplete="name" required>
+                <input name="name" autocomplete="name" required>
               </label>
             </div>
             <div class="field-grid">
               <label>
                 연락처
-                <input name="연락처" autocomplete="tel" required>
+                <input name="phone" autocomplete="tel" required>
               </label>
               <label>
                 카카오톡 닉네임
-                <input name="카카오톡 닉네임">
+                <input name="kakao">
               </label>
             </div>
             <div class="field-grid">
               <label>
                 주문 상품
-                <input name="주문 상품" placeholder="예: 강아지케이크 대">
+                <input name="product" placeholder="예: 강아지케이크 대">
               </label>
               <label>
                 수령 희망일
-                <input name="수령 희망일" type="date">
+                <input name="pickup_date" type="date">
               </label>
             </div>
             <label>
               문의 내용
-              <textarea name="문의 내용" placeholder="문의 내용, 예약 변경 요청, 입금자명 등을 적어주세요." required></textarea>
+              <textarea name="message" placeholder="문의 내용, 예약 변경 요청, 입금자명 등을 적어주세요." required></textarea>
             </label>
             <button class="btn" id="csSubmit" type="submit">문의 접수하기</button>
             <span class="form-note" id="csStatus"></span>
@@ -1305,7 +1317,8 @@
       csForm.addEventListener("submit", async (event) => {
         event.preventDefault();
         const formData = new FormData(csForm);
-        const body = new URLSearchParams(formData).toString();
+        formData.set("form-name", csForm.getAttribute("name"));
+        const body = new URLSearchParams(formData);
 
         csSubmit.disabled = true;
         csSubmit.textContent = "접수 중...";
@@ -1315,7 +1328,7 @@
           const response = await fetch("/", {
             method: "POST",
             headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body
+            body: body.toString()
           });
 
           if (!response.ok) throw new Error("submit failed");
