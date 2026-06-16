@@ -738,7 +738,7 @@
               <span id="cartTotal">0원</span>
             </div>
             <button class="btn kakao" id="confirmOrder" type="button" style="width:100%; margin-top:16px;">주문확정</button>
-            <p class="cart-help" id="copyNotice">주문확정을 누르면 장바구니 내용이 복사되고 카카오톡 채널로 이동합니다.</p>
+            <p class="cart-help" id="copyNotice">주문확정을 누르면 주문내용이 자동 복사되고 카카오톡 채널로 이동합니다. 채팅창에 붙여넣은 뒤 주문정보를 입력해 보내주세요.</p>
           </div>
           <aside class="cart-panel">
             <h3>선결제 안내</h3>
@@ -824,7 +824,7 @@
         </aside>
         <div class="steps">
           <article class="step"><div class="num">1</div><div><h3>메뉴 선택</h3><p>강아지케이크 대·소, 머핀 2구, 멍스크림, 멍춘쿠키 중 원하는 상품을 고릅니다.</p></div></article>
-          <article class="step"><div class="num">2</div><div><h3>날짜와 문구 전달</h3><p>수령 희망일, 케이크 문구, 사진, 요청사항을 함께 보내주세요.</p></div></article>
+          <article class="step"><div class="num">2</div><div><h3>날짜와 요청사항 전달</h3><p>수령 희망일, 사진, 추가 요청사항을 함께 보내주세요.</p></div></article>
           <article class="step"><div class="num">3</div><div><h3>제작 가능 여부 안내</h3><p>일정, 디자인, 수량을 확인한 뒤 최종 금액과 픽업 방법을 안내드립니다.</p></div></article>
           <article class="step"><div class="num">4</div><div><h3>입금 확인 후 제작</h3><p>케이크는 예약주문 상품으로, 입금 확인 후 제작이 확정됩니다.</p></div></article>
         </div>
@@ -1061,7 +1061,6 @@
       lines.push("반려견 이름:");
       lines.push("수령 희망일:");
       lines.push("수령 희망 시간:");
-      lines.push("케이크 문구:");
       lines.push("추가 요청사항:");
       lines.push("입금자명:");
       lines.push("");
@@ -1115,7 +1114,7 @@
 
       try {
         await copyText(buildOrderMessage());
-        copyNotice.textContent = "주문내용이 복사되었습니다. 카카오톡 채널 채팅창에 붙여넣어 보내주세요. 입금 확인 후 제작이 확정됩니다.";
+        copyNotice.textContent = "주문내용이 복사되었습니다. 카카오톡 채널 채팅창에 붙여넣고 주문자명, 연락처, 수령 희망일, 수령 희망 시간, 추가 요청사항을 입력해 보내주세요. 입금 확인 후 제작이 확정됩니다.";
       } catch (error) {
         copyNotice.textContent = "주문내용 복사가 되지 않으면 장바구니 내용을 캡처해서 카카오톡으로 보내주세요.";
       }
