@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>문의가 접수되었습니다 | 이누피스</title>
+  <style>
+    :root {
+      --ink: #1f2522;
+      --muted: #68736e;
+      --paper: #fffdf8;
+      --soft: #f7f3ec;
+      --line: #e7ded2;
+      --sage: #31584e;
+      --coral: #d87555;
+      --radius: 8px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: var(--soft);
+      color: var(--ink);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif;
+      line-height: 1.6;
+    }
+    .box {
+      width: min(560px, 100%);
+      padding: 34px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      text-align: center;
+      box-shadow: 0 18px 48px rgba(31, 37, 34, 0.12);
+    }
+    .mark {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 18px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--sage);
+      color: #fff;
+      font-size: 24px;
+      font-weight: 900;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 6vw, 40px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+    p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    a {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 16px;
+      border-radius: var(--radius);
+      background: var(--sage);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 900;
+    }
+    a.kakao {
+      background: #fee500;
+      color: #211b00;
+    }
+    a.ghost {
+      background: transparent;
+      color: var(--sage);
+      border: 1px solid #b9cdc5;
+    }
+  </style>
+</head>
+<body>
+  <main class="box">
+    <div class="mark">✓</div>
+    <h1>문의가 접수되었습니다.</h1>
+    <p>남겨주신 내용을 확인한 뒤 순차적으로 연락드립니다. 빠른 상담이 필요하면 카카오톡 채널로 문의해주세요.</p>
+    <div class="actions">
+      <a class="kakao" href="http://pf.kakao.com/_SrhCX/chat">카카오톡 채팅</a>
+      <a class="ghost" href="/">홈으로 돌아가기</a>
+    </div>
+  </main>
+</body>
+</html>
