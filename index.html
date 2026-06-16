@@ -511,6 +511,71 @@
     summary { cursor: pointer; color: var(--sage); font-weight: 950; }
     details p { margin: 12px 0 0; color: var(--muted); font-weight: 700; }
 
+    .cs-section { background: var(--paper); }
+    .cs-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .cs-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(31, 37, 34, 0.06);
+    }
+    .cs-card h3 { margin: 0 0 10px; font-size: 22px; }
+    .cs-card p { margin: 0 0 14px; color: var(--muted); font-weight: 700; }
+    .cs-list {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .cs-list li {
+      padding: 12px;
+      border-radius: var(--radius);
+      background: var(--soft);
+      color: #40534c;
+      font-weight: 800;
+    }
+    .cs-form { display: grid; gap: 12px; }
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .cs-form label {
+      display: grid;
+      gap: 6px;
+      color: var(--sage);
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .cs-form input,
+    .cs-form select,
+    .cs-form textarea {
+      width: 100%;
+      min-height: 42px;
+      padding: 10px 12px;
+      border: 1px solid #cfded8;
+      border-radius: var(--radius);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+    }
+    .cs-form textarea {
+      min-height: 118px;
+      resize: vertical;
+    }
+    .form-note {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     .order {
       background: var(--ink);
       color: #fff;
@@ -554,7 +619,7 @@
       }
       .hero-inner { padding-top: 46px; padding-bottom: 290px; }
       .quick-grid, .product-grid, .proof-row, .mung-panels, .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .mung-grid, .process-grid, .order-box, .cart-box { grid-template-columns: 1fr; }
+      .mung-grid, .process-grid, .order-box, .cart-box, .cs-grid { grid-template-columns: 1fr; }
       .mung-hero, .process-box { position: static; }
       .order-actions { justify-content: flex-start; }
     }
@@ -569,7 +634,7 @@
       main section { padding: 62px 0; }
       .section-head { display: block; }
       .hero-inner { padding-bottom: 260px; }
-      .quick-grid, .product-grid, .proof-row, .mung-panels, .faq-grid, .rarity, .option-note ul { grid-template-columns: 1fr; }
+      .quick-grid, .product-grid, .proof-row, .mung-panels, .faq-grid, .rarity, .option-note ul, .field-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-links { justify-content: flex-start; }
       .mobile-cta {
@@ -603,6 +668,7 @@
         <a href="#menu">메뉴</a>
         <a href="#mungchoon">멍춘쿠키</a>
         <a href="#process">주문</a>
+        <a href="#cs">고객센터</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="nav-actions">
@@ -848,6 +914,83 @@
       </div>
     </section>
 
+    <section class="cs-section" id="cs">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="kicker">Customer Support</div>
+            <h2>고객센터와 문의 접수.</h2>
+          </div>
+          <p class="lead">빠른 주문 상담은 카카오톡 채널이 가장 좋습니다. 일반 문의, 예약 변경, 입금 확인 요청은 아래 문의폼으로도 남길 수 있습니다.</p>
+        </div>
+        <div class="cs-grid">
+          <aside class="cs-card">
+            <h3>상담 채널 안내</h3>
+            <p>실시간에 가까운 상담은 카카오톡 채널에서 진행해 주세요. 사이트 문의폼은 Netlify 관리자 화면의 Forms 메뉴에 접수됩니다.</p>
+            <div class="hero-actions">
+              <a class="btn kakao" href="http://pf.kakao.com/_SrhCX/chat" target="_blank" rel="noreferrer">카카오톡 채팅</a>
+              <a class="btn insta" href="https://www.instagram.com/inu_piece" target="_blank" rel="noreferrer">인스타그램 DM</a>
+            </div>
+            <ul class="cs-list">
+              <li>주문 확정, 입금 확인, 예약 변경은 카카오톡 채널 권장</li>
+              <li>일반 문의, 제휴, 후기, 기타 CS는 문의폼 접수 가능</li>
+              <li>사이트 안 채팅 위젯은 채널톡 pluginKey 발급 후 연결 가능</li>
+            </ul>
+          </aside>
+          <form class="cs-card cs-form" name="inupiece-cs" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="inupiece-cs">
+            <p style="display:none;">
+              <label>비워두세요 <input name="bot-field"></label>
+            </p>
+            <div class="field-grid">
+              <label>
+                문의 유형
+                <select name="문의 유형" required>
+                  <option value="">선택해주세요</option>
+                  <option>주문 문의</option>
+                  <option>입금 확인</option>
+                  <option>예약 변경</option>
+                  <option>상품 문의</option>
+                  <option>제휴 문의</option>
+                  <option>기타 문의</option>
+                </select>
+              </label>
+              <label>
+                이름
+                <input name="이름" autocomplete="name" required>
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                연락처
+                <input name="연락처" autocomplete="tel" required>
+              </label>
+              <label>
+                카카오톡 닉네임
+                <input name="카카오톡 닉네임">
+              </label>
+            </div>
+            <div class="field-grid">
+              <label>
+                주문 상품
+                <input name="주문 상품" placeholder="예: 강아지케이크 대">
+              </label>
+              <label>
+                수령 희망일
+                <input name="수령 희망일" type="date">
+              </label>
+            </div>
+            <label>
+              문의 내용
+              <textarea name="문의 내용" placeholder="문의 내용, 예약 변경 요청, 입금자명 등을 적어주세요." required></textarea>
+            </label>
+            <button class="btn" type="submit">문의 접수하기</button>
+            <span class="form-note">접수된 내용은 Netlify 관리자 화면의 Forms에서 확인할 수 있습니다. 빠른 답변이 필요하면 카카오톡 채널을 이용해주세요.</span>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="order" id="order">
       <div class="wrap order-box">
         <div>
@@ -874,6 +1017,7 @@
       <div class="footer-links">
         <a href="#menu">메뉴</a>
         <a href="#mungchoon">멍춘쿠키</a>
+        <a href="#cs">고객센터</a>
         <a href="http://pf.kakao.com/_SrhCX/chat" target="_blank" rel="noreferrer">KakaoTalk</a>
         <a href="https://www.instagram.com/inu_piece" target="_blank" rel="noreferrer">@inu_piece</a>
       </div>
@@ -882,10 +1026,39 @@
 
   <div class="mobile-cta" aria-label="모바일 빠른 문의">
     <a class="btn ghost" href="#cart">장바구니</a>
-    <a class="btn kakao" href="http://pf.kakao.com/_SrhCX/chat" target="_blank" rel="noreferrer">카카오톡</a>
+    <a class="btn kakao" href="#cs">상담</a>
   </div>
 
   <script>
+    const CHANNEL_IO_PLUGIN_KEY = "";
+    if (CHANNEL_IO_PLUGIN_KEY) {
+      (function() {
+        const w = window;
+        if (w.ChannelIO) return;
+        const ch = function() { ch.c(arguments); };
+        ch.q = [];
+        ch.c = function(args) { ch.q.push(args); };
+        w.ChannelIO = ch;
+        function loadChannelIO() {
+          if (w.ChannelIOInitialized) return;
+          w.ChannelIOInitialized = true;
+          const script = document.createElement("script");
+          script.type = "text/javascript";
+          script.async = true;
+          script.src = "https://cdn.channel.io/plugin/ch-plugin-web.js";
+          const firstScript = document.getElementsByTagName("script")[0];
+          firstScript.parentNode.insertBefore(script, firstScript);
+        }
+        if (document.readyState === "complete") {
+          loadChannelIO();
+        } else {
+          window.addEventListener("DOMContentLoaded", loadChannelIO);
+          window.addEventListener("load", loadChannelIO);
+        }
+      })();
+      window.ChannelIO("boot", { pluginKey: CHANNEL_IO_PLUGIN_KEY });
+    }
+
     const tabs = document.querySelectorAll(".tab");
     const cards = document.querySelectorAll(".product-card");
     const cartItems = document.querySelector("#cartItems");
