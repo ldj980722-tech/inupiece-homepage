@@ -6,7 +6,7 @@
   <title>이누피스 Inupiece | 반려견 입체케이크 & 수제간식</title>
   <meta name="description" content="이누피스는 반려견 케이크와 간식을 만드는 반려견 케이크 간식 전문 브랜드입니다.">
   <meta property="og:title" content="이누피스 Inupiece">
-  <meta property="og:description" content="강아지가 집사에게 전하는 오늘의 운세, 이누피스 시그니처 럭키 간식 멍춘쿠키.">
+  <meta property="og:description" content="반려견 케이크와 수제 간식을 준비하는 이누피스.">
   <meta property="og:image" content="assets/inupiece-hero.png">
   <style>
     :root {
@@ -410,13 +410,13 @@
       font-weight: 750;
     }
 
-    .mungchoon {
+    .mungcream-feature {
       background:
         linear-gradient(135deg, rgba(49,88,78,0.96), rgba(31,37,34,0.97)),
         radial-gradient(circle at 80% 20%, rgba(216,117,85,0.5), transparent 36%);
       color: #fff;
     }
-    .mungchoon .kicker { color: #ffd8c9; }
+    .mungcream-feature .kicker { color: #ffd8c9; }
     .mung-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -434,15 +434,15 @@
     }
     .mung-hero h2 { color: #fff; }
     .mung-hero p { color: rgba(255,255,255,0.76); font-weight: 700; }
-    .fortune-card {
+    .feature-price {
       margin-top: 22px;
       padding: 18px;
       border-radius: var(--radius);
       background: #fffdf8;
       color: var(--ink);
-      transform: rotate(-1deg);
     }
-    .fortune-card b { display: block; color: var(--coral); margin-bottom: 6px; }
+    .feature-price b { display: block; color: var(--sage); margin-bottom: 6px; }
+    .feature-price span { color: var(--coral); font-size: 28px; font-weight: 950; }
     .mung-panels {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -459,25 +459,6 @@
     .panel p, .panel li { color: rgba(255,255,255,0.76); font-weight: 700; }
     .panel p { margin: 0; }
     .panel ul { margin: 0; padding-left: 18px; }
-    .mini-table { width: 100%; border-collapse: collapse; overflow: hidden; border-radius: var(--radius); }
-    .mini-table th, .mini-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.12); text-align: left; }
-    .mini-table th { color: rgba(255,255,255,0.62); font-size: 12px; }
-    .mini-table td { font-weight: 900; }
-    .rarity {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 8px;
-      margin-top: 12px;
-    }
-    .rarity span {
-      padding: 10px;
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.1);
-      text-align: center;
-      font-size: 12px;
-      font-weight: 950;
-    }
-
     .sub { margin: 0 0 18px; color: var(--muted); font-weight: 800; }
     .featured .sub { color: rgba(255,255,255,0.74); }
     .check-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
@@ -707,7 +688,7 @@
       main section { padding: 62px 0; }
       .section-head { display: block; }
       .hero-inner { padding-bottom: 260px; }
-      .quick-grid, .product-grid, .proof-row, .mung-panels, .faq-grid, .rarity, .option-note ul, .field-grid { grid-template-columns: 1fr; }
+      .quick-grid, .product-grid, .proof-row, .mung-panels, .faq-grid, .option-note ul, .field-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-links { justify-content: flex-start; }
       .mobile-cta {
@@ -739,7 +720,7 @@
       </a>
       <div class="nav-links">
         <a href="#menu">메뉴</a>
-        <a href="#mungchoon">멍춘쿠키</a>
+        <a href="#mungcream">멍스크림</a>
         <a href="#process">주문</a>
         <a href="#cs">고객센터</a>
         <a href="#faq">FAQ</a>
@@ -823,15 +804,15 @@
               <div class="product-foot"><span class="price">5,000원</span><button class="btn icon add-cart" type="button" data-id="mung-cream" aria-label="멍스크림 담기">+</button></div>
             </div>
           </article>
-          <article class="product-card coming-soon-card" data-category="mungchoon">
+          <article class="product-card coming-soon-card" data-category="coming-soon">
             <div class="product-art coral coming-art">
-              <span class="badge">LUCKY</span>
+              <span class="badge">SOON</span>
               <div class="coming-title">COMING<br>SOON</div>
             </div>
             <div class="product-body">
               <h3>멍춘쿠키</h3>
-              <p>강아지가 집사에게 전하는 오늘의 운세. 귀여운 럭키 간식으로 준비 중입니다.</p>
-              <div class="product-foot"><span class="price">준비 중</span><a class="btn ghost" href="#cs">출시 문의</a></div>
+              <p>이누피스의 새로운 간식이 곧 찾아옵니다.</p>
+              <div class="product-foot"><span class="price">COMING SOON</span></div>
             </div>
           </article>
         </div>
@@ -880,34 +861,30 @@
       </div>
     </section>
 
-    <section class="mungchoon" id="mungchoon">
+    <section class="mungcream-feature" id="mungcream">
       <div class="wrap mung-grid">
         <div class="mung-hero">
-          <div class="kicker">Coming Soon</div>
-          <h2>멍춘쿠키,<br>곧 만나요.</h2>
-          <p>강아지가 집사에게 전하는 오늘의 운세를 담은 이누피스의 새로운 럭키 간식입니다. 정식 출시 전까지 조금만 기다려주세요.</p>
-          <div class="hero-actions">
-            <a class="btn kakao" href="http://pf.kakao.com/_SrhCX/chat" target="_blank" rel="noreferrer">출시 문의하기</a>
-            <a class="btn insta" href="https://www.instagram.com/inu_piece" target="_blank" rel="noreferrer">인스타그램 소식 보기</a>
-          </div>
-          <div class="fortune-card">
-            <b>COMING SOON</b>
-            <span>오늘 우리 강아지가 골라준 귀여운 한마디를 준비하고 있어요.</span>
+          <div class="kicker">Mungcream</div>
+          <h2>멍스크림</h2>
+          <p>시원하게 즐기는 반려견 아이스 간식.</p>
+          <p>멍스크림은 아이스크림처럼 시원하게 급여할 수 있는 반려견 간식입니다. 일반 아이스크림처럼 흘러내리며 녹는 타입은 아니어서, 케이크와 함께 준비하기에도 좋아요.</p>
+          <div class="feature-price">
+            <b>2개 구성</b>
+            <span>5,000원</span>
           </div>
         </div>
         <div class="mung-panels">
           <article class="panel">
-            <h3>운세카드</h3>
-            <p>집사가 읽는 귀여운 한마디를 담아 준비 중입니다.</p>
+            <h3>캐롭치즈맛</h3>
+            <p>캐롭은 초콜릿이 아니라 콩과 식물에서 얻는 원료예요. 은은한 초코향 같은 풍미가 있어 강아지 간식에도 자주 활용됩니다. 고소한 치즈 풍미와 함께 즐길 수 있어요.</p>
           </article>
           <article class="panel">
-            <h3>수제쿠키</h3>
-            <p>반려견이 함께 즐길 수 있는 간식으로 준비 중입니다.</p>
+            <h3>블루베리맛</h3>
+            <p>블루베리의 산뜻한 향을 담아 더운 날 가볍게 즐기기 좋은 맛입니다.</p>
           </article>
           <article class="panel wide">
-            <h3>출시 소식</h3>
-            <p>정식 출시 일정과 구성은 인스타그램과 홈페이지에서 안내드릴 예정입니다.</p>
-            <div class="rarity"><span>CUTE</span><span>LUCKY</span><span>FUN</span><span>SOON</span></div>
+            <h3>구성 안내</h3>
+            <p>캐롭치즈맛과 블루베리맛 2가지로 준비되어 있으며, 보냉백 + 얼음팩 추가가 가능합니다.</p>
           </article>
         </div>
       </div>
@@ -939,7 +916,7 @@
         <div class="faq-grid">
           <details open><summary>어디로 문의하면 되나요?</summary><p>카카오톡 채널 또는 인스타그램 DM으로 문의하시면 됩니다.</p></details>
           <details><summary>케이크 가격과 옵션은 어떻게 되나요?</summary><p>입체케이크 대는 47,000원~, 소는 23,000원~입니다. 닭가슴살 추가는 입체케이크 소 1,000원, 입체케이크 대 2,000원이며 강아지 추가는 입체케이크 대만 가능, 25,000원입니다.</p></details>
-          <details><summary>멍춘쿠키는 언제 구매할 수 있나요?</summary><p>멍춘쿠키는 현재 준비 중입니다. 출시 일정은 인스타그램과 홈페이지에서 안내드릴 예정입니다.</p></details>
+          <details><summary>멍스크림은 어떤 맛이 있나요?</summary><p>캐롭치즈맛과 블루베리맛 2가지로 준비되어 있습니다. 일반 아이스크림처럼 흘러내리며 녹는 타입은 아니에요.</p></details>
           <details><summary>결제는 어떻게 하나요?</summary><p>장바구니 금액 확인 후 카카오뱅크 3333-369-075240 (이누피스)로 입금해주세요. 입체케이크와 머핀은 결제 확인 후 순서대로 준비됩니다.</p></details>
           <details><summary>원하는 디자인으로 주문할 수 있나요?</summary><p>원하시는 케이크 디자인이 있다면 편하게 문의해주세요. 상담 후 가능 여부를 안내드립니다.</p></details>
         </div>
