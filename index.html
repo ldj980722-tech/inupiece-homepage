@@ -846,14 +846,15 @@
               <span id="cartTotal">0원</span>
             </div>
             <button class="btn kakao" id="confirmOrder" type="button" style="width:100%; margin-top:16px;">주문확정</button>
-            <p class="cart-help" id="copyNotice">주문확정을 누르면 주문내용이 자동 복사되고 카카오톡 채널로 이동합니다. 채팅창에 붙여넣은 뒤 주문정보를 입력해 보내주세요.</p>
+            <p class="cart-help" id="copyNotice">주문확정을 누르면 주문내용이 자동 복사되고 카카오톡 채널로 이동합니다. 채팅창에 붙여넣어 보내주시면 가능 여부 확인 후 결제 안내를 드립니다.</p>
           </div>
           <aside class="cart-panel">
-            <h3>결제 안내</h3>
+            <h3>주문 확인 안내</h3>
             <div class="pay-box">
-              <b>입금 계좌</b>
-              <strong>카카오뱅크 3333-369-075240 (이누피스)</strong>
+              <b>주문내용을 먼저 보내주세요</b>
+              <strong>확인 후 결제 안내</strong>
             </div>
+            <p class="cart-help">카카오톡으로 주문내용을 보내주시면 일정, 디자인, 수량 확인 후 가능 여부와 결제 방법을 안내드립니다.</p>
             <p class="cart-help">장바구니 금액은 기본 옵션 기준 금액입니다. 디자인, 문구, 추가 요청사항에 따라 최종 금액이 달라질 수 있습니다.</p>
             <p class="cart-help">픽업 당일 예약 취소와 날짜 변경은 불가합니다. 픽업 시간 변경이 필요하신 경우 카카오톡으로 문의해주세요.</p>
           </aside>
@@ -916,7 +917,7 @@
           <details open><summary>어디로 문의하면 되나요?</summary><p>카카오톡 채널 또는 인스타그램 DM으로 문의하시면 됩니다.</p></details>
           <details><summary>케이크 가격과 옵션은 어떻게 되나요?</summary><p>입체케이크 대는 47,000원~, 소는 23,000원~입니다. 닭가슴살 추가는 입체케이크 소 1,000원, 입체케이크 대 2,000원이며 강아지 추가는 입체케이크 대만 가능, 25,000원입니다.</p></details>
           <details><summary>멍스크림은 어떤 맛이 있나요?</summary><p>캐롭치즈맛과 블루베리맛 2가지로 준비되어 있습니다.</p></details>
-          <details><summary>결제는 어떻게 하나요?</summary><p>장바구니 금액 확인 후 카카오뱅크 3333-369-075240 (이누피스)로 입금해주세요. 입체케이크와 머핀은 결제 확인 후 순서대로 준비됩니다.</p></details>
+          <details><summary>결제는 어떻게 하나요?</summary><p>장바구니 내용을 카카오톡으로 보내주시면 일정과 디자인 확인 후 결제 방법을 안내드립니다. 입체케이크와 머핀은 결제 확인 후 순서대로 준비됩니다.</p></details>
           <details><summary>원하는 디자인으로 주문할 수 있나요?</summary><p>원하시는 케이크 디자인이 있다면 편하게 문의해주세요. 상담 후 가능 여부를 안내드립니다.</p></details>
         </div>
       </div>
@@ -928,14 +929,14 @@
           <div>
             <div class="kicker">Customer Support</div>
           </div>
-          <p class="lead">주문, 입금 확인, 예약 변경, 상품 문의를 남겨주세요.</p>
+          <p class="lead">주문, 결제 확인, 예약 변경, 상품 문의를 남겨주세요.</p>
         </div>
         <div class="cs-grid">
           <aside class="cs-card">
             <h3>문의 안내</h3>
-            <p>주문 확정과 입금 확인은 카카오톡 채널이 가장 빠릅니다. 간단한 상품 질문은 인스타그램 DM으로도 문의하실 수 있습니다.</p>
+            <p>주문 확인과 결제 확인은 카카오톡 채널이 가장 빠릅니다. 간단한 상품 질문은 인스타그램 DM으로도 문의하실 수 있습니다.</p>
             <ul class="cs-list">
-              <li>주문 확정 / 입금 확인 / 예약 변경: 카카오톡 채널</li>
+              <li>주문 확인 / 결제 확인 / 예약 변경: 카카오톡 채널</li>
               <li>상품 문의 / 간단 상담: 카카오톡 채널 또는 인스타그램 DM</li>
               <li>제휴 / 기타 문의: 아래 양식 작성 후 카카오톡 전송</li>
             </ul>
@@ -947,7 +948,7 @@
                 <select name="type" required>
                   <option value="">선택해주세요</option>
                   <option>주문 문의</option>
-                  <option>입금 확인</option>
+                  <option>결제 확인</option>
                   <option>예약 변경</option>
                   <option>상품 문의</option>
                   <option>제휴 문의</option>
@@ -981,7 +982,7 @@
             </div>
             <label>
               문의 내용
-              <textarea name="message" placeholder="문의 내용, 예약 변경 요청, 입금자명 등을 적어주세요." required></textarea>
+              <textarea name="message" placeholder="문의 내용, 예약 변경 요청, 추가 요청사항 등을 적어주세요." required></textarea>
             </label>
             <button class="btn kakao" id="csSubmit" type="submit">문의내용 복사하고 카카오톡 문의하기</button>
             <span class="form-note" id="csStatus"></span>
@@ -1240,9 +1241,8 @@
       lines.push("수령 희망일:");
       lines.push("수령 희망 시간:");
       lines.push("추가 요청사항:");
-      lines.push("입금자명:");
       lines.push("");
-      lines.push("입금 계좌: 카카오뱅크 3333-369-075240 (이누피스)");
+      lines.push("안내: 주문 가능 여부 확인 후 결제 방법을 안내드립니다.");
       lines.push("안내: 입체케이크와 머핀은 결제 확인 후 순서대로 준비됩니다.");
       return lines.join("\n");
     }
@@ -1292,7 +1292,7 @@
 
       try {
         await copyText(buildOrderMessage());
-        copyNotice.textContent = "주문내용이 복사되었습니다. 카카오톡 채널 채팅창에 붙여넣고 주문자명, 연락처, 수령 희망일, 수령 희망 시간, 추가 요청사항을 입력해 보내주세요. 입금 확인 후 제작이 확정됩니다.";
+        copyNotice.textContent = "주문내용이 복사되었습니다. 카카오톡 채널 채팅창에 붙여넣고 주문자명, 연락처, 수령 희망일, 수령 희망 시간, 추가 요청사항을 입력해 보내주세요. 가능 여부 확인 후 결제 안내를 드립니다.";
       } catch (error) {
         copyNotice.textContent = "주문내용 복사가 되지 않으면 장바구니 내용을 캡처해서 카카오톡으로 보내주세요.";
       }
